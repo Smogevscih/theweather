@@ -21,16 +21,35 @@ public class PresenterTwo implements ContractTwo.Presenter {
     private ContractTwo.View view;
     private ContractTwo.BModel model;
     Context context;
+    public static final int GOOD_CONNECT = 100;
+    public static final int NO_CONNECT = 400;
     Handler handler = new Handler(Looper.getMainLooper()) {
         public void handleMessage(Message msg) {
+            if (msg.what == 2) {
+                iniField();
+            }
+            if (msg.what == GOOD_CONNECT) {
+                model.getListCity();
+                          }
+            if (msg.what == NO_CONNECT) {
 
+            }
         }
     };
     public PresenterTwo(ContractTwo.View view) {
         this.view = view;
         context = ((Activity) view).getApplicationContext();
         model = new TemperatureInCity(handler);
-
     }
 
+
+    @Override
+    public void onGetListCity() {
+        model.onConnectBD();
+    }
+
+    @Override
+    public void iniField() {
+
+    }
 }

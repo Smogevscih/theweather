@@ -3,6 +3,7 @@ package com.smic.weather;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -30,7 +31,12 @@ public class EditCityActivity extends AppCompatActivity implements ContractTwo.V
             spnSizeCity = findViewById(R.id.spnSizeCity);
             etxtNameCity = findViewById(R.id.etxtNameCity);
         }
+        presenter.onGetListCity();
 
     }
 
+    @Override
+    public void showSpinnerCity(ArrayAdapter adapterCity) {
+        spnCity.setAdapter(adapterCity);
+    }
 }
