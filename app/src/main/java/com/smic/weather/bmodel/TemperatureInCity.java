@@ -7,6 +7,7 @@ import com.smic.weather.bmodel.db.CitiesDAO;
 import com.smic.weather.bmodel.db.Database;
 import com.smic.weather.bmodel.temp.Temperature;
 import com.smic.weather.contracts.ContractOne;
+import com.smic.weather.contracts.ContractTwo;
 import com.smic.weather.presenters.PresenterOne;
 
 import java.math.BigDecimal;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
  * @autor Smogevscih Yuri
  * 08.07.2020
  **/
-public class TemperatureInCity implements ContractOne.BModel {
+public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel {
     private CitiesDAO citiesDAO;
     Handler handler;
     static ArrayList<City> list;
