@@ -175,4 +175,16 @@ public class City {
     public void setName(String name) {
         this.name = name;
     }
+    public double getAverageWinter(){
+        return tDecember+tJanuary+tFebruary;
+    }
+    public double getAverageSpring(){
+        return tMarch+tApril+tMay;
+    }
+    public double getAverageSummer(){
+        return tJune+tJuly+tAugust;
+    }
+    public double getAverageAutumn(){
+        return tSeptember+tOctober+tNovember;
+    }
 }

@@ -3,6 +3,7 @@ package com.smic.weather.contracts;
 import android.widget.ArrayAdapter;
 
 import com.smic.weather.bmodel.City;
+import com.smic.weather.bmodel.temp.Temperature;
 
 import java.util.ArrayList;
 
@@ -15,6 +16,7 @@ public interface ContractOne {
         void getListCity();
         ArrayList<City> getList();
         void onConnectBD();
+        String mediumTepmSeason(City city, String season, Temperature scale);
     }
 
     interface Presenter {
