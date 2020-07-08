@@ -14,20 +14,31 @@ import java.util.ArrayList;
 public interface ContractOne {
     interface BModel {
         void getListCity();
+
         ArrayList<City> getList();
+
         void onConnectBD();
+
         String answerMediumTepmSeason(City city, String season, Temperature scale);
     }
 
     interface Presenter {
         void iniField();
+
         void onGetField();
+
         void onSelectedCity(City city);
+
+        void onGetAnswer(City city, String season, String scale);
     }
 
     interface View {
         void showSpinnerCity(ArrayAdapter adapterCity);
+
         void showTypeCity(String typeCity);
+
         void showToast(String message);
+
+        void showAnswer(String answer);
     }
 }

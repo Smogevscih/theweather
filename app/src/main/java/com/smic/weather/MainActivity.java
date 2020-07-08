@@ -17,7 +17,8 @@ import com.smic.weather.presenters.PresenterOne;
 
 public class MainActivity extends AppCompatActivity implements ContractOne.View, View.OnClickListener {
     private Button btnConnectBD, btnEditCity, btnGetListFromBD;
-    private Spinner spnCity, spnSeason, spnModeScale;
+    private Spinner spnCity;
+    private Spinner spnSeason;
     private TextView txtTypeCity, txtAnswer;
     PresenterOne presenter;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         presenter = new PresenterOne(this);
+        final Spinner spnModeScale;
         {
             btnConnectBD = findViewById(R.id.btnConnectBD);
             btnEditCity = findViewById(R.id.btnEditCity);
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
                 City myCity = (City) spnCity.getSelectedItem();
                 if (myCity != null) {
                     presenter.onSelectedCity(myCity);
+                    presenter.onGetAnswer(myCity,(String)spnSeason.getSelectedItem(),(String)spnModeScale.getSelectedItem());
                 }
 
             }
@@ -78,6 +81,11 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
     @Override
     public void showToast(String message) {
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showAnswer(String answer) {
+        txtAnswer.setText(answer);
     }
 
     @Override

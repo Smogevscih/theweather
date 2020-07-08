@@ -10,6 +10,10 @@ import android.widget.ArrayAdapter;
 import com.smic.weather.R;
 import com.smic.weather.bmodel.City;
 import com.smic.weather.bmodel.TemperatureInCity;
+import com.smic.weather.bmodel.temp.Celsium;
+import com.smic.weather.bmodel.temp.Fahrenheit;
+import com.smic.weather.bmodel.temp.Kelvin;
+import com.smic.weather.bmodel.temp.Temperature;
 import com.smic.weather.contracts.ContractOne;
 
 import java.util.ArrayList;
@@ -63,5 +67,22 @@ public class PresenterOne implements ContractOne.Presenter {
     @Override
     public void onSelectedCity(City city) {
         view.showTypeCity(city.getTypeCity());
+    }
+
+    @Override
+    public void onGetAnswer(City city, String season, String scale) {
+        Temperature scaleTemp = null;
+        switch (scale) {
+            case "Celsium":
+                scaleTemp = new Celsium();
+                break;
+            case "Fahrenheit":
+                scaleTemp = new Fahrenheit();
+                break;
+            case "Kelvin":
+                scaleTemp = new Kelvin();
+                break;
+        }
+        view.showAnswer(model.answerMediumTepmSeason(city, season, scaleTemp));
     }
 }
