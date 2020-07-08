@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">weather</string>
+    <string name="btn_add_city">Add City</string>
+    <string name="btn_update_city">UPDATE CITY</string>
+    <string name="btn_edit_city_temp">Edit City TEMP</string>
+    <string name="btn_remove_city">Remove City</string>
+    <string name="txt_name_city">Name City</string>
+    <string name="btn_add_and_edit_city">ADD OR EDIT CITY</string>
     <string-array name="seasons">
         <item>WINTER</item>
         <item>SPRING</item>
