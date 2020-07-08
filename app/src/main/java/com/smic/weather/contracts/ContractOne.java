@@ -14,14 +14,16 @@ public interface ContractOne {
     interface BModel {
         void getListCity();
         ArrayList<City> getList();
+        void onConnectBD();
     }
 
     interface Presenter {
         void iniField();
-
+        void onGetField();
     }
 
     interface View {
         void showSpinnerCity(ArrayAdapter adapterCity);
+
     }
 }

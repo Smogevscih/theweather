@@ -27,6 +27,9 @@ public class PresenterOne implements ContractOne.Presenter {
             if (msg.what == 2) {
                 iniField();
             }
+            if (msg.what == 1) {
+                iniField();
+            }
         }
     };
 
@@ -43,5 +46,10 @@ public class PresenterOne implements ContractOne.Presenter {
         ArrayAdapter<?> adapter = new ArrayAdapter(context, R.layout.custom_spinner, listCyties.toArray());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         view.showSpinnerCity(adapter);
+    }
+
+    @Override
+    public void onGetField() {
+        model.onConnectBD();
     }
 }
