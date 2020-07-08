@@ -45,19 +45,19 @@
             tools:text="Средняя температура" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnEditCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ADD AND EDIT CITY" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnConnectBD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ConnectBD" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnGetListFromBD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="GET LIST FROM BD" />
