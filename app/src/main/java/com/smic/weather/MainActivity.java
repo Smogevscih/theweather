@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        presenter=new PresenterOne(this);
         {
             button = findViewById(R.id.button);
             button2 = findViewById(R.id.button2);

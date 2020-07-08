@@ -12,7 +12,7 @@ public interface ContractOne {
     }
 
     interface Presenter {
-
+        void iniField();
 
     }
 
