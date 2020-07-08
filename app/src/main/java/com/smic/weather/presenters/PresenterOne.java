@@ -22,6 +22,7 @@ import com.smic.weather.contracts.ContractOne;
 import java.util.ArrayList;
 
 import static com.smic.weather.bmodel.Constants.GOOD_CONNECT;
+import static com.smic.weather.bmodel.Constants.GOOD_OPERATION;
 import static com.smic.weather.bmodel.Constants.NO_CONNECT;
 
 /**
@@ -35,7 +36,7 @@ public class PresenterOne implements ContractOne.Presenter {
 
     Handler handler = new Handler(Looper.getMainLooper()) {
         public void handleMessage(Message msg) {
-            if (msg.what == 2) {
+            if (msg.what == GOOD_OPERATION) {
                 iniField();
             }
             if (msg.what == GOOD_CONNECT) {

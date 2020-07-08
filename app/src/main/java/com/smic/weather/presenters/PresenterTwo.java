@@ -14,6 +14,10 @@ import com.smic.weather.contracts.ContractTwo;
 
 import java.util.ArrayList;
 
+import static com.smic.weather.bmodel.Constants.GOOD_CONNECT;
+import static com.smic.weather.bmodel.Constants.GOOD_OPERATION;
+import static com.smic.weather.bmodel.Constants.NO_CONNECT;
+
 /**
  * @autor Smogevscih Yuri
  * 08.07.2020
@@ -22,21 +26,21 @@ public class PresenterTwo implements ContractTwo.Presenter {
     private ContractTwo.View view;
     private ContractTwo.BModel model;
     Context context;
-    public static final int GOOD_CONNECT = 100;
-    public static final int NO_CONNECT = 400;
+
     Handler handler = new Handler(Looper.getMainLooper()) {
         public void handleMessage(Message msg) {
-            if (msg.what == 2) {
+            if (msg.what == GOOD_OPERATION) {
                 iniField();
             }
             if (msg.what == GOOD_CONNECT) {
                 model.getListCity();
-                          }
+            }
             if (msg.what == NO_CONNECT) {
 
             }
         }
     };
+
     public PresenterTwo(ContractTwo.View view) {
         this.view = view;
         context = ((Activity) view).getApplicationContext();
@@ -47,6 +51,11 @@ public class PresenterTwo implements ContractTwo.Presenter {
     @Override
     public void onGetListCity() {
         model.onConnectBD();
+    }
+
+    @Override
+    public void onBtnDelCity(City city) {
+        model.delCity(city);
     }
 
     @Override
