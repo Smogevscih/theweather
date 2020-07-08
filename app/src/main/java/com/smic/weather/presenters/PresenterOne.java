@@ -23,6 +23,7 @@ public class PresenterOne implements ContractOne.Presenter {
     ContractOne.BModel model;
     Context context;
     public static final int GOOD_CONNECT = 100;
+    public static final int NO_CONNECT = 400;
     Handler handler = new Handler(Looper.getMainLooper()) {
         public void handleMessage(Message msg) {
             if (msg.what == 2) {
@@ -30,6 +31,11 @@ public class PresenterOne implements ContractOne.Presenter {
             }
             if (msg.what == GOOD_CONNECT) {
                 model.getListCity();
+                view.showToast("Connect on BD");
+            }
+            if (msg.what == NO_CONNECT) {
+
+                view.showToast("We have problem with BD. Maybe BD no such.");
             }
         }
     };

@@ -49,7 +49,11 @@ public class TemperatureInCity implements ContractOne.BModel {
             public void run() {
                 AppDatabase db = Database.getInstance().getDatabase();
                 citiesDAO = db.citiesDAO();
-                if (citiesDAO != null) handler.sendEmptyMessage(PresenterOne.GOOD_CONNECT);
+                if (citiesDAO != null) {handler.sendEmptyMessage(PresenterOne.GOOD_CONNECT);}
+                else{
+                    handler.sendEmptyMessage(PresenterOne.NO_CONNECT);
+                }
+
             }
         });
         thread.start();
