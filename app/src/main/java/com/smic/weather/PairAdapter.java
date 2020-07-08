@@ -1,5 +1,7 @@
 package com.smic.weather;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,19 +13,32 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.smic.weather.bmodel.temp.PairTempAndMonth;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @autor Smogevscih Yuri
  * 08.07.2020
  **/
 public class PairAdapter extends RecyclerView.Adapter<PairAdapter.PairViewHolder> {
-    private List<PairTempAndMonth> list;
+    private static List<PairTempAndMonth> list;
+    private static Map<Integer, Double> mapChange = new HashMap<>();
 
+    public static Map<Integer, Double> getMapChange() {
+        return mapChange;
+    }
 
     public PairAdapter(List<PairTempAndMonth> list) {
-        this.list = list;
+        PairAdapter.list = list;
+        initMap();
+    }
 
+    private static void initMap() {
+        mapChange.clear();
+        for (int i = 0; i < list.size(); i++) {
+            mapChange.put(i, list.get(i).getTemp());
+        }
     }
 
     @NonNull
@@ -54,6 +69,24 @@ public class PairAdapter extends RecyclerView.Adapter<PairAdapter.PairViewHolder
             super(itemView);
             txtMonth = itemView.findViewById(R.id.txtMonth);
             etxtValue = itemView.findViewById(R.id.etxtValue);
+            TextWatcher textWatcher = new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    int a = getAdapterPosition();
+                    mapChange.put(a, Double.parseDouble(s.toString()));
+                }
+            };
+            etxtValue.addTextChangedListener(textWatcher);
         }
 
         private void bind(@NonNull PairTempAndMonth pairTempAndMonth) {
