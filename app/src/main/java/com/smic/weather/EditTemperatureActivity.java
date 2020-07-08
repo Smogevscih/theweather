@@ -1,6 +1,7 @@
 package com.smic.weather;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -30,7 +31,7 @@ public class EditTemperatureActivity extends AppCompatActivity implements Contra
         }
 
         id = getIntent().getIntExtra("key", 0);
-
+        presenter.onInitField(id);
     }
 
     @Override
@@ -40,6 +41,8 @@ public class EditTemperatureActivity extends AppCompatActivity implements Contra
 
     @Override
     public void showTempAndMonth(PairAdapter pairAdapter) {
-
+        recyclerView.setAdapter(pairAdapter);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(mLayoutManager);
     }
 }
