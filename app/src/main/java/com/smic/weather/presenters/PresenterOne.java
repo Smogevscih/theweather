@@ -2,11 +2,14 @@ package com.smic.weather.presenters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.widget.ArrayAdapter;
 
+import com.smic.weather.EditCityActivity;
+import com.smic.weather.MainActivity;
 import com.smic.weather.R;
 import com.smic.weather.bmodel.City;
 import com.smic.weather.bmodel.TemperatureInCity;
@@ -57,6 +60,12 @@ public class PresenterOne implements ContractOne.Presenter {
         ArrayAdapter<?> adapter = new ArrayAdapter(context, R.layout.custom_spinner, listCyties.toArray());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         view.showSpinnerCity(adapter);
+    }
+
+    @Override
+    public void onBtnOpenEditActivity() {
+        Intent intent = new Intent(context, EditCityActivity.class);
+        context.startActivity(intent);
     }
 
     @Override

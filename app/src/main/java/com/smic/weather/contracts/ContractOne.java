@@ -25,6 +25,8 @@ public interface ContractOne {
     interface Presenter {
         void iniField();
 
+        void onBtnOpenEditActivity();
+
         void onGetField();
 
         void onSelectedCity(City city);

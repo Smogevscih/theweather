@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
         spnCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-              onSelected();
+                onSelected();
             }
 
             @Override
@@ -117,10 +117,10 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnConnectBD:
-               // presenter.onGetField();
+                // presenter.onGetField();
                 break;
             case R.id.btnEditCity:
-
+                presenter.onBtnOpenEditActivity();
 
                 break;
             case R.id.btnGetListFromBD:

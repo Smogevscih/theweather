@@ -7,6 +7,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.widget.ArrayAdapter;
 
+import com.smic.weather.R;
 import com.smic.weather.bmodel.City;
 import com.smic.weather.bmodel.TemperatureInCity;
 import com.smic.weather.contracts.ContractTwo;
@@ -50,6 +51,10 @@ public class PresenterTwo implements ContractTwo.Presenter {
 
     @Override
     public void iniField() {
-
+        ArrayList<City> listCyties;
+        listCyties = model.getList();
+        ArrayAdapter<?> adapter = new ArrayAdapter(context, R.layout.custom_spinner, listCyties.toArray());
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        view.showSpinnerCity(adapter);
     }
 }
