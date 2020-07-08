@@ -64,7 +64,11 @@ public class TemperatureInCity implements ContractOne.BModel {
     }
 
     @Override
-    public String mediumTepmSeason(City city, String season, Temperature scale) {
+    public String answerMediumTepmSeason(City city, String season, Temperature scale) {
+
+        return "Средняя температура за сезон " + season + " равна " + averageTempInScale(city, season, scale) + " град. по шкале " + scale;
+    }
+    private double averageTempInScale(City city, String season, Temperature scale) {
         double average = 0;
 
         switch (season) {
@@ -80,11 +84,12 @@ public class TemperatureInCity implements ContractOne.BModel {
             case "AUTUMN":
                 average = (city.getAverageAutumn()) / 3;
                 break;
+
         }
 
         average = new BigDecimal(average).setScale(2, RoundingMode.HALF_UP).doubleValue();
         average = scale.getTemperature(average);
-        return "Средняя температура за сезон " + season + " равна " + average + " град. по шкале " + scale;
+        return average;
     }
 
 //    City addCity() {

@@ -17,13 +17,18 @@ public class TemperatureInCityTest {
     Temperature temperature;
     final double EPS=1e-9;
     String season;
+    City city;
+
     @Before
     public void setUp() throws Exception {
         temperature=new Celsium();
-        season="WINTER";
+        city=new City(2, "Москва", "SMALL", 1,
+                1, 2, 2, 2, 3, 3, 3,
+                4, 4, 4, 1);
     }
     @Test
-    public void mediumTepmSeason() {
-
+    public void averageTempInScale() {
+        season="WINTER";
+       // assertEquals(1,);
     }
 }

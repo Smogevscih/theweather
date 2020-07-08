@@ -16,7 +16,7 @@ public interface ContractOne {
         void getListCity();
         ArrayList<City> getList();
         void onConnectBD();
-        String mediumTepmSeason(City city, String season, Temperature scale);
+        String answerMediumTepmSeason(City city, String season, Temperature scale);
     }
 
     interface Presenter {
