@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">weather</string>
+    <string-array name="seasons">
+        <item>WINTER</item>
+        <item>SPRING</item>
+        <item>SUMMER</item>
+        <item>AUTUMN</item>
+    </string-array>
+    <string-array name="scale">
+        <item>Celsium</item>
+        <item>Fahrenheit</item>
+        <item>Kelvin</item>
+    </string-array>
 </resources>

@@ -6,6 +6,7 @@ import com.smic.weather.bmodel.db.AppDatabase;
 import com.smic.weather.bmodel.db.CitiesDAO;
 import com.smic.weather.bmodel.db.Database;
 import com.smic.weather.contracts.ContractOne;
+import com.smic.weather.presenters.PresenterOne;
 
 import java.util.ArrayList;
 
@@ -48,7 +49,7 @@ public class TemperatureInCity implements ContractOne.BModel {
             public void run() {
                 AppDatabase db = Database.getInstance().getDatabase();
                 citiesDAO = db.citiesDAO();
-                if (citiesDAO != null) handler.sendEmptyMessage(1);
+                if (citiesDAO != null) handler.sendEmptyMessage(PresenterOne.GOOD_CONNECT);
             }
         });
         thread.start();

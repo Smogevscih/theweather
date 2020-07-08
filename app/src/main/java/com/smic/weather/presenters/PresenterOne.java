@@ -22,7 +22,7 @@ public class PresenterOne implements ContractOne.Presenter {
     ContractOne.View view;
     ContractOne.BModel model;
     Context context;
-    final int GOOD_CONNECT = 100;
+    public static final int GOOD_CONNECT = 100;
     Handler handler = new Handler(Looper.getMainLooper()) {
         public void handleMessage(Message msg) {
             if (msg.what == 2) {

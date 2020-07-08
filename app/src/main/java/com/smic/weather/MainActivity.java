@@ -14,7 +14,7 @@ import com.smic.weather.presenters.PresenterOne;
 
 public class MainActivity extends AppCompatActivity implements ContractOne.View, View.OnClickListener {
     private Button btnConnectBD, btnEditCity, btnGetListFromBD;
-    private Spinner spinner1, spinner2, spnModeScale;
+    private Spinner spnCity, spnSeason, spnModeScale;
     private TextView txtTypeCity, txtAnswer;
     PresenterOne presenter;
 
@@ -27,11 +27,19 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
             btnConnectBD = findViewById(R.id.btnConnectBD);
             btnEditCity = findViewById(R.id.btnEditCity);
             btnGetListFromBD = findViewById(R.id.btnGetListFromBD);
-            spinner1 = findViewById(R.id.spinner1);
-            spinner2 = findViewById(R.id.spinner2);
+            spnCity = findViewById(R.id.spnCity);
+            spnSeason = findViewById(R.id.spnSeason);
             spnModeScale = findViewById(R.id.spnModeScale);
             txtTypeCity = findViewById(R.id.txtTypeCity);
             txtAnswer = findViewById(R.id.txtAnswer);
+        }
+        {
+            ArrayAdapter<?> adapterSeasons = ArrayAdapter.createFromResource(this, R.array.seasons, android.R.layout.simple_spinner_item);
+            adapterSeasons.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spnSeason.setAdapter(adapterSeasons);
+            adapterSeasons = ArrayAdapter.createFromResource(this, R.array.scale, android.R.layout.simple_spinner_item);
+            adapterSeasons.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spnModeScale.setAdapter(adapterSeasons);
         }
         btnConnectBD.setOnClickListener(this);
         btnEditCity.setOnClickListener(this);
@@ -40,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
 
     @Override
     public void showSpinnerCity(ArrayAdapter adapterCity) {
-        spinner1.setAdapter(adapterCity);
+        spnCity.setAdapter(adapterCity);
     }
 
     @Override
