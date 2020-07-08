@@ -11,7 +11,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.smic.weather.bmodel.City;
+import com.smic.weather.bmodel.cities.City;
 import com.smic.weather.contracts.ContractOne;
 import com.smic.weather.presenters.PresenterOne;
 

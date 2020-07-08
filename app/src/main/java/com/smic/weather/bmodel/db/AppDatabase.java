@@ -3,7 +3,7 @@ package com.smic.weather.bmodel.db;
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
-import com.smic.weather.bmodel.City;
+import com.smic.weather.bmodel.cities.City;
 
 /**
  * @autor Smogevscih Yuri

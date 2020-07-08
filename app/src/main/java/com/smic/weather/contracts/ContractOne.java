@@ -2,7 +2,7 @@ package com.smic.weather.contracts;
 
 import android.widget.ArrayAdapter;
 
-import com.smic.weather.bmodel.City;
+import com.smic.weather.bmodel.cities.City;
 import com.smic.weather.bmodel.temp.Temperature;
 
 import java.util.ArrayList;

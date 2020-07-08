@@ -2,7 +2,7 @@ package com.smic.weather.contracts;
 
 import android.widget.ArrayAdapter;
 
-import com.smic.weather.bmodel.City;
+import com.smic.weather.bmodel.cities.City;
 
 import java.util.ArrayList;
 
@@ -12,6 +12,8 @@ import java.util.ArrayList;
  **/
 public interface ContractTwo {
     interface BModel {
+        void addNewCity(String typeCity);
+
         void onConnectBD();
 
         void getListCity();
@@ -22,6 +24,8 @@ public interface ContractTwo {
     }
 
     interface Presenter {
+        void onBtnAddNewCity(String typeCity);
+
         void onGetListCity();
 
         void onBtnDelCity(City city);

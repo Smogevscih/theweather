@@ -9,9 +9,8 @@ import android.os.Message;
 import android.widget.ArrayAdapter;
 
 import com.smic.weather.EditCityActivity;
-import com.smic.weather.MainActivity;
 import com.smic.weather.R;
-import com.smic.weather.bmodel.City;
+import com.smic.weather.bmodel.cities.City;
 import com.smic.weather.bmodel.TemperatureInCity;
 import com.smic.weather.bmodel.temp.Celsium;
 import com.smic.weather.bmodel.temp.Fahrenheit;

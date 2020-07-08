@@ -2,13 +2,13 @@ package com.smic.weather.bmodel;
 
 import android.os.Handler;
 
+import com.smic.weather.bmodel.cities.City;
 import com.smic.weather.bmodel.db.AppDatabase;
 import com.smic.weather.bmodel.db.CitiesDAO;
 import com.smic.weather.bmodel.db.Database;
 import com.smic.weather.bmodel.temp.Temperature;
 import com.smic.weather.contracts.ContractOne;
 import com.smic.weather.contracts.ContractTwo;
-import com.smic.weather.presenters.PresenterOne;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -26,10 +26,12 @@ public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel
     private CitiesDAO citiesDAO;
     Handler handler;
     static ArrayList<City> list;
+    FactoryCity factoryCity;
 
 
     public TemperatureInCity(Handler handler) {
         this.handler = handler;
+        factoryCity = new FactoryCity();
 
     }
 
@@ -65,6 +67,21 @@ public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel
     }
 
     @Override
+    public void addNewCity(final String typeCity) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int count = citiesDAO.getAll().size() + 1;
+                City newCity = factoryCity.getCity(typeCity);
+                newCity.setId(count);
+                citiesDAO.insert(newCity);
+                list = (ArrayList<City>) citiesDAO.getAll();
+                handler.sendEmptyMessage(GOOD_OPERATION);
+            }
+        }).start();
+    }
+
+    @Override
     public void onConnectBD() {
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -87,6 +104,7 @@ public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel
 
         return "Средняя температура за сезон " + season + " равна " + averageTempInScale(city, season, scale) + " град. по шкале " + scale;
     }
+
     private double averageTempInScale(City city, String season, Temperature scale) {
         double average = 0;
 

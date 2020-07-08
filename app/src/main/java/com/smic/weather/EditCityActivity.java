@@ -2,7 +2,6 @@ package com.smic.weather;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.smic.weather.bmodel.City;
+import com.smic.weather.bmodel.cities.City;
 import com.smic.weather.contracts.ContractTwo;
 import com.smic.weather.presenters.PresenterTwo;
 

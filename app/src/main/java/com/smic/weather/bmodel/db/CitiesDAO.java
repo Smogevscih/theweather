@@ -6,7 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.smic.weather.bmodel.City;
+import com.smic.weather.bmodel.cities.City;
 
 import java.util.List;
 

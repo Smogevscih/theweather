@@ -1,12 +1,11 @@
 package com.smic.weather.bmodel;
 
+import com.smic.weather.bmodel.cities.City;
 import com.smic.weather.bmodel.temp.Celsium;
 import com.smic.weather.bmodel.temp.Temperature;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * @autor Smogevscih Yuri

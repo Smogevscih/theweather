@@ -1,4 +1,4 @@
-package com.smic.weather.bmodel;
+package com.smic.weather.bmodel.cities;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
