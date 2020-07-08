@@ -73,16 +73,16 @@ public class TemperatureInCity implements ContractOne.BModel {
 
         switch (season) {
             case "WINTER":
-                average = (city.getAverageWinter()) / 3;
+                average = city.getAverageWinter();
                 break;
             case "SPRING":
-                average = (city.getAverageSpring()) / 3;
+                average = city.getAverageSpring();
                 break;
             case "SUMMER":
-                average = (city.getAverageSummer()) / 3;
+                average = city.getAverageSummer();
                 break;
             case "AUTUMN":
-                average = (city.getAverageAutumn()) / 3;
+                average = city.getAverageAutumn();
                 break;
 
         }
