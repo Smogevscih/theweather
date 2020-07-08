@@ -62,7 +62,7 @@
             android:id="@+id/btnUpdateCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit City" />
+            android:text="UPDATE CITY" />
 
         <Button
             android:id="@+id/btnEditTempCity"
