@@ -48,13 +48,14 @@ public class TemperatureInCity implements ContractOne.BModel {
             public void run() {
                 AppDatabase db = Database.getInstance().getDatabase();
                 citiesDAO = db.citiesDAO();
+                citiesDAO.insert(addCity());
                 if (citiesDAO != null) handler.sendEmptyMessage(1);
-            }
+                            }
         });
         thread.start();
     }
         City addCity() {
-        City city = new City(4, "Мурманск","BIG" , 1,
+        City city = new City(2, "Москва","SMALL" , 1,
                 1, 3, 4, 5, 6, 7, 8,
                 9, 10, 11, 12);
         return city;

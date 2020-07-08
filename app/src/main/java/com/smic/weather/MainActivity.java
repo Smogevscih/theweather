@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnConnectBD:
-
+                presenter.onGetField();
                 break;
             case R.id.btnEditCity:
 

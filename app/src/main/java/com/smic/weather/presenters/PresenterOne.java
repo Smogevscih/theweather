@@ -25,10 +25,10 @@ public class PresenterOne implements ContractOne.Presenter {
     Handler handler = new Handler(Looper.getMainLooper()) {
         public void handleMessage(Message msg) {
             if (msg.what == 2) {
-                iniField();
+            //    iniField();
             }
             if (msg.what == 1) {
-                iniField();
+              //  iniField();
             }
         }
     };
