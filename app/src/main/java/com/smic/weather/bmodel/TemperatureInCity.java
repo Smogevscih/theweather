@@ -41,11 +41,20 @@ public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel
             @Override
             public void run() {
                 list = (ArrayList<City>) citiesDAO.getAll();
+
                 handler.sendEmptyMessage(GOOD_OPERATION);
             }
         });
         thread.start();
     }
+
+    //восстановление городов по типам после десериализации.
+//    private void updateCities() {
+//        ArrayList<City> newList = new ArrayList<>();
+//        for (City city : list) {
+//        if(city )
+//        }
+//    }
 
     @Override
     public ArrayList<City> getList() {
