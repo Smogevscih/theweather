@@ -34,6 +34,6 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View 
 
     @Override
     public void showSpinnerCity(ArrayAdapter adapterCity) {
-
+        spinner1.setAdapter(adapterCity);
     }
 }
