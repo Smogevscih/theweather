@@ -176,15 +176,15 @@ public class City {
         this.name = name;
     }
     public double getAverageWinter(){
-        return tDecember+tJanuary+tFebruary;
+        return (tDecember+tJanuary+tFebruary)/3;
     }
     public double getAverageSpring(){
-        return tMarch+tApril+tMay;
+        return (tMarch+tApril+tMay)/3;
     }
     public double getAverageSummer(){
-        return tJune+tJuly+tAugust;
+        return (tJune+tJuly+tAugust)/3;
     }
     public double getAverageAutumn(){
-        return tSeptember+tOctober+tNovember;
+        return (tSeptember+tOctober+tNovember)/3;
     }
 }
