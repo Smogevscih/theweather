@@ -23,23 +23,15 @@ import java.util.Map;
  **/
 public class PairAdapter extends RecyclerView.Adapter<PairAdapter.PairViewHolder> {
     private static List<PairTempAndMonth> list;
-    private static Map<Integer, Double> mapChange = new HashMap<>();
 
-    public static Map<Integer, Double> getMapChange() {
-        return mapChange;
+    public static List<PairTempAndMonth> getList() {
+        return list;
     }
 
     public PairAdapter(List<PairTempAndMonth> list) {
         PairAdapter.list = list;
-        initMap();
     }
 
-    private static void initMap() {
-        mapChange.clear();
-        for (int i = 0; i < list.size(); i++) {
-            mapChange.put(i, list.get(i).getTemp());
-        }
-    }
 
     @NonNull
     @Override
@@ -83,7 +75,8 @@ public class PairAdapter extends RecyclerView.Adapter<PairAdapter.PairViewHolder
                 @Override
                 public void afterTextChanged(Editable s) {
                     int a = getAdapterPosition();
-                    mapChange.put(a, Double.parseDouble(s.toString()));
+                    double value = Double.parseDouble(s.toString());
+                    list.get(a).setTemp(value);
                 }
             };
             etxtValue.addTextChangedListener(textWatcher);

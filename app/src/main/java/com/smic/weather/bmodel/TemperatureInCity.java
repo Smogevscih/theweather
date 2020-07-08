@@ -155,19 +155,19 @@ public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel
     }
 
     @Override
-    public void updateTemp(City city, Map mapTemp) {
-        city.settJanuary((Double) mapTemp.get(0));
-        city.settFebruary((Double) mapTemp.get(1));
-        city.settMarch((Double) mapTemp.get(2));
-        city.settApril((Double) mapTemp.get(3));
-        city.settMay((Double) mapTemp.get(4));
-        city.settJune((Double) mapTemp.get(5));
-        city.settJuly((Double) mapTemp.get(6));
-        city.settAugust((Double) mapTemp.get(7));
-        city.settSeptember((Double) mapTemp.get(8));
-        city.settOctober((Double) mapTemp.get(9));
-        city.settNovember((Double) mapTemp.get(10));
-        city.settDecember((Double) mapTemp.get(11));
+    public void updateTemp(City city, List<PairTempAndMonth> listTemp) {
+        city.settJanuary((Double) listTemp.get(0).getTemp());
+        city.settFebruary((Double) listTemp.get(1).getTemp());
+        city.settMarch((Double) listTemp.get(2).getTemp());
+        city.settApril((Double) listTemp.get(3).getTemp());
+        city.settMay((Double) listTemp.get(4).getTemp());
+        city.settJune((Double) listTemp.get(5).getTemp());
+        city.settJuly((Double) listTemp.get(6).getTemp());
+        city.settAugust((Double) listTemp.get(7).getTemp());
+        city.settSeptember((Double) listTemp.get(8).getTemp());
+        city.settOctober((Double) listTemp.get(9).getTemp());
+        city.settNovember((Double) listTemp.get(10).getTemp());
+        city.settDecember((Double) listTemp.get(11).getTemp());
         updateCity(city);
     }
 

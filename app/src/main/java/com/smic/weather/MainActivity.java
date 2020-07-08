@@ -85,6 +85,12 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
         presenter.onGetField();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.onGetField();
+    }
+
     private void onSelected() {
         City myCity = (City) spnCity.getSelectedItem();
         if (myCity != null) {

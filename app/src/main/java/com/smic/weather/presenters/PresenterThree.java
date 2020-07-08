@@ -57,7 +57,7 @@ public class PresenterThree implements ContractThree.Presenter {
     }
 
     @Override
-    public void onBtnSave(Map mapTemp) {
-        model.updateTemp(city, mapTemp);
+    public void onBtnSave(List listTemp) {
+        model.updateTemp(city, listTemp);
     }
 }

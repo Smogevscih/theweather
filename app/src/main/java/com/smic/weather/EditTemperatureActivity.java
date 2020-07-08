@@ -38,7 +38,7 @@ public class EditTemperatureActivity extends AppCompatActivity implements Contra
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnSave) {
-            presenter.onBtnSave(PairAdapter.getMapChange());
+            presenter.onBtnSave(PairAdapter.getList());
         }
     }
 
