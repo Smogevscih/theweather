@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
         btnEditCity.setOnClickListener(this);
         presenter.onGetField();
         {
-            Observable<String> txtObservable= RxTextView.textChange(txtAnswer);
-            Observer<String> observer=new Observer<String>() {
+            Observable<String> txtObservable = RxTextView.textChange(txtAnswer);
+            Observer<String> observer = new Observer<String>() {
                 @Override
                 public void onSubscribe(Disposable d) {
 
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
 
                 @Override
                 public void onNext(String s) {
-                    Snackbar.make(txtAnswer,s,Snackbar.LENGTH_LONG).show();
+                   if(!s.isEmpty()) Snackbar.make(txtAnswer, s, Snackbar.LENGTH_LONG).show();
                 }
 
                 @Override
@@ -116,7 +116,13 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
     @Override
     protected void onResume() {
         super.onResume();
+        clearField();
         presenter.onGetField();
+    }
+
+    private void clearField() {
+        txtAnswer.setText("");
+        txtTypeCity.setText("");
     }
 
     private void onSelected() {
