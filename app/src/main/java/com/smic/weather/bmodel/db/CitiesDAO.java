@@ -1,5 +1,6 @@
 package com.smic.weather.bmodel.db;
 
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -13,6 +14,7 @@ import java.util.List;
  * @autor Smogevscih Yuri
  * 08.07.2020
  **/
+@Dao
 public interface CitiesDAO {
     @Query("SELECT * FROM city")
     List<City> getAll();
