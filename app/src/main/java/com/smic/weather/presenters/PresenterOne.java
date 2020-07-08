@@ -22,13 +22,14 @@ public class PresenterOne implements ContractOne.Presenter {
     ContractOne.View view;
     ContractOne.BModel model;
     Context context;
+    final int GOOD_CONNECT = 100;
     Handler handler = new Handler(Looper.getMainLooper()) {
         public void handleMessage(Message msg) {
             if (msg.what == 2) {
-            //    iniField();
+                iniField();
             }
-            if (msg.what == 1) {
-              //  iniField();
+            if (msg.what == GOOD_CONNECT) {
+                model.getListCity();
             }
         }
     };
