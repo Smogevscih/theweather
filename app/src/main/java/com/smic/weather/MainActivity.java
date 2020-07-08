@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
         btnConnectBD.setOnClickListener(this);
         btnEditCity.setOnClickListener(this);
         btnGetListFromBD.setOnClickListener(this);
-
+        presenter.onGetField();
     }
 
     private void onSelected() {
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnConnectBD:
-                presenter.onGetField();
+               // presenter.onGetField();
                 break;
             case R.id.btnEditCity:
 
