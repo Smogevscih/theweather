@@ -39,7 +39,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
-                android:text="TextView"
+                android:text="Name City"
+                android:textSize="18sp"
                 tools:text="Name City" />
 
             <EditText
@@ -58,7 +59,7 @@
             android:text="Add City" />
 
         <Button
-            android:id="@+id/btnEditCity"
+            android:id="@+id/btnUpdateCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Edit City" />

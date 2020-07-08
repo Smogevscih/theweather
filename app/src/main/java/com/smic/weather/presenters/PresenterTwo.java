@@ -36,7 +36,7 @@ public class PresenterTwo implements ContractTwo.Presenter {
                 model.getListCity();
             }
             if (msg.what == NO_CONNECT) {
-
+            //добавить show  на тост
             }
         }
     };
@@ -47,6 +47,18 @@ public class PresenterTwo implements ContractTwo.Presenter {
         model = new TemperatureInCity(handler);
     }
 
+
+    @Override
+    public void onBtnUpdateCity(City city, String nameCity, String typeCity) {
+        city.setName(nameCity);
+        city.setTypeCity(typeCity);
+        model.updateCity(city);
+    }
+
+    @Override
+    public void onBtnAddNewCity(String typeCity) {
+        model.addNewCity(typeCity);
+    }
 
     @Override
     public void onGetListCity() {

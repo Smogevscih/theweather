@@ -21,9 +21,13 @@ public interface ContractTwo {
         ArrayList<City> getList();
 
         void delCity(City city);
+
+        void updateCity(City city);
     }
 
     interface Presenter {
+        void onBtnUpdateCity(City city, String nameCity, String typeCity);
+
         void onBtnAddNewCity(String typeCity);
 
         void onGetListCity();
@@ -31,6 +35,7 @@ public interface ContractTwo {
         void onBtnDelCity(City city);
 
         void iniField();
+
     }
 
     interface View {

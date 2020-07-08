@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
 
         {
             btnConnectBD = findViewById(R.id.btnConnectBD);
-            btnEditCity = findViewById(R.id.btnEditCity);
+            btnEditCity = findViewById(R.id.btnUpdateCity);
             btnGetListFromBD = findViewById(R.id.btnGetListFromBD);
             spnCity = findViewById(R.id.spnCity);
             spnSeason = findViewById(R.id.spnSeason);
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
             case R.id.btnConnectBD:
                 // presenter.onGetField();
                 break;
-            case R.id.btnEditCity:
+            case R.id.btnUpdateCity:
                 presenter.onBtnOpenEditActivity();
 
                 break;
