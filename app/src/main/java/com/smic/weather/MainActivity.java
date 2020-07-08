@@ -11,9 +11,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.smic.weather.bmodel.cities.City;
 import com.smic.weather.contracts.ContractOne;
 import com.smic.weather.presenters.PresenterOne;
+import com.smic.weather.rx.RxTextView;
+
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class MainActivity extends AppCompatActivity implements ContractOne.View, View.OnClickListener {
     private Button btnEditCity;
@@ -79,6 +85,32 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
 
         btnEditCity.setOnClickListener(this);
         presenter.onGetField();
+        {
+            Observable<String> txtObservable= RxTextView.textChange(txtAnswer);
+            Observer<String> observer=new Observer<String>() {
+                @Override
+                public void onSubscribe(Disposable d) {
+
+                }
+
+                @Override
+                public void onNext(String s) {
+                    Snackbar.make(txtAnswer,s,Snackbar.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onError(Throwable e) {
+
+                }
+
+                @Override
+                public void onComplete() {
+
+                }
+            };
+            txtObservable.subscribe(observer);
+        }
+
     }
 
     @Override
