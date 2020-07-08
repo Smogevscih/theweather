@@ -16,7 +16,7 @@ import com.smic.weather.contracts.ContractOne;
 import com.smic.weather.presenters.PresenterOne;
 
 public class MainActivity extends AppCompatActivity implements ContractOne.View, View.OnClickListener {
-    private Button btnConnectBD, btnEditCity, btnGetListFromBD;
+    private Button btnEditCity;
     private Spinner spnSeason, spnModeScale, spnCity;
     private TextView txtTypeCity, txtAnswer;
     PresenterOne presenter;
@@ -28,9 +28,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
         presenter = new PresenterOne(this);
 
         {
-            btnConnectBD = findViewById(R.id.btnConnectBD);
             btnEditCity = findViewById(R.id.btnUpdateCity);
-            btnGetListFromBD = findViewById(R.id.btnGetListFromBD);
             spnCity = findViewById(R.id.spnCity);
             spnSeason = findViewById(R.id.spnSeason);
             spnModeScale = findViewById(R.id.spnModeScale);
@@ -79,9 +77,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
             }
         });
 
-        btnConnectBD.setOnClickListener(this);
         btnEditCity.setOnClickListener(this);
-        btnGetListFromBD.setOnClickListener(this);
         presenter.onGetField();
     }
 
@@ -121,17 +117,8 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnConnectBD:
-                // presenter.onGetField();
-                break;
-            case R.id.btnUpdateCity:
-                presenter.onBtnOpenEditActivity();
-
-                break;
-            case R.id.btnGetListFromBD:
-
-                break;
+        if (v.getId() == R.id.btnUpdateCity) {
+            presenter.onBtnOpenEditActivity();
         }
     }
 }

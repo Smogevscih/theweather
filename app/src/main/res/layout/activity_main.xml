@@ -9,7 +9,6 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="100dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,47 +19,55 @@
             android:id="@+id/spnCity"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
             android:textColor="#050505" />
 
         <TextView
             android:id="@+id/txtTypeCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="18sp"
             tools:text="Тип города" />
 
         <Spinner
             android:id="@+id/spnSeason"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp" />
 
         <Spinner
             android:id="@+id/spnModeScale"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp" />
 
         <TextView
             android:id="@+id/txtAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="18sp"
             tools:text="Средняя температура" />
 
         <Button
             android:id="@+id/btnUpdateCity"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="ADD AND EDIT CITY" />
-
-        <Button
-            android:id="@+id/btnConnectBD"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ConnectBD" />
-
-        <Button
-            android:id="@+id/btnGetListFromBD"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="GET LIST FROM BD" />
 
     </LinearLayout>
 
