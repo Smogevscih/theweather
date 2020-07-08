@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.smic.weather.bmodel.City;
 import com.smic.weather.contracts.ContractOne;
@@ -72,6 +73,11 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
     @Override
     public void showTypeCity(String typeCity) {
         txtTypeCity.setText(typeCity);
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 
     @Override

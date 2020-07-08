@@ -26,5 +26,6 @@ public interface ContractOne {
     interface View {
         void showSpinnerCity(ArrayAdapter adapterCity);
         void showTypeCity(String typeCity);
+        void showToast(String message);
     }
 }
