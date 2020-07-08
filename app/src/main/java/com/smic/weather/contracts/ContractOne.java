@@ -20,10 +20,11 @@ public interface ContractOne {
     interface Presenter {
         void iniField();
         void onGetField();
+        void onSelectedCity(City city);
     }
 
     interface View {
         void showSpinnerCity(ArrayAdapter adapterCity);
-
+        void showTypeCity(String typeCity);
     }
 }

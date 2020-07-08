@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.smic.weather.bmodel.City;
 import com.smic.weather.contracts.ContractOne;
 import com.smic.weather.presenters.PresenterOne;
 
@@ -41,14 +43,35 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
             adapterSeasons.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spnModeScale.setAdapter(adapterSeasons);
         }
+        spnCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                City myCity = (City) spnCity.getSelectedItem();
+                if (myCity != null) {
+                    presenter.onSelectedCity(myCity);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         btnConnectBD.setOnClickListener(this);
         btnEditCity.setOnClickListener(this);
         btnGetListFromBD.setOnClickListener(this);
+
     }
 
     @Override
     public void showSpinnerCity(ArrayAdapter adapterCity) {
         spnCity.setAdapter(adapterCity);
+    }
+
+    @Override
+    public void showTypeCity(String typeCity) {
+        txtTypeCity.setText(typeCity);
     }
 
     @Override

@@ -53,4 +53,9 @@ public class PresenterOne implements ContractOne.Presenter {
     public void onGetField() {
         model.onConnectBD();
     }
+
+    @Override
+    public void onSelectedCity(City city) {
+        view.showTypeCity(city.getTypeCity());
+    }
 }
