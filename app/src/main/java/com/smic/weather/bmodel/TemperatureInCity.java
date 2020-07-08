@@ -146,6 +146,14 @@ public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel
     }
 
     @Override
+    public City getCity(int id) {
+        for (City city : list) {
+            if (city.getId() == id) return city;
+        }
+        return null;
+    }
+
+    @Override
     public String answerMediumTepmSeason(City city, String season, Temperature scale) {
 
         return "Средняя температура за сезон " + season + " равна " + averageTempInScale(city, season, scale) + " град. по шкале " + scale;

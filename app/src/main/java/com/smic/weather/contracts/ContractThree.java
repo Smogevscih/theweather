@@ -19,10 +19,12 @@ public interface ContractThree {
 
         List<PairTempAndMonth> getListPair(City city);
 
+        City getCity(int id);
+
     }
 
     interface Presenter {
-
+        void onInitField(int id);
     }
 
     interface View {

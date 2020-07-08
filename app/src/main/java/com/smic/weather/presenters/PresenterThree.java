@@ -14,7 +14,7 @@ import com.smic.weather.contracts.ContractThree;
  * @autor Smogevscih Yuri
  * 08.07.2020
  **/
-public class PresenterThree {
+public class PresenterThree implements ContractThree.Presenter{
     private ContractThree.View view;
     private ContractThree.BModel model;
     Context context;
@@ -29,5 +29,10 @@ public class PresenterThree {
         this.view = view;
         model = new TemperatureInCity(handler);
         context = ((Activity) view).getApplicationContext();
+    }
+
+    @Override
+    public void onInitField(int id) {
+
     }
 }

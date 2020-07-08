@@ -4,17 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.smic.weather.contracts.ContractThree;
 import com.smic.weather.presenters.PresenterThree;
 
-public class EditTemperatureActivity extends AppCompatActivity {
+public class EditTemperatureActivity extends AppCompatActivity implements ContractThree.View, View.OnClickListener {
     RecyclerView recyclerView;
     Button btnSave;
-    EditText etxtValue;
-    TextView txtMonth;
+
     PresenterThree presenter;
     int id;
 
@@ -22,6 +23,23 @@ public class EditTemperatureActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_temperature);
+        presenter = new PresenterThree(this);
+        {
+            recyclerView = findViewById(R.id.recyclerView);
+            btnSave = findViewById(R.id.btnSave);
+        }
+
+        id = getIntent().getIntExtra("key", 0);
+
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void showTempAndMonth(PairAdapter pairAdapter) {
+
+    }
 }
