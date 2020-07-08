@@ -36,6 +36,8 @@ public interface ContractTwo {
 
         void iniField();
 
+        void onBtnOpenActivityForEditTemp(City city);
+
     }
 
     interface View {

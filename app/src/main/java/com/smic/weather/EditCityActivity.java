@@ -90,8 +90,8 @@ public class EditCityActivity extends AppCompatActivity implements ContractTwo.V
                 if (city != null) presenter.onBtnDelCity(city);
                 break;
             case R.id.btnEditTempCity:
-
-                break;
+                if (city != null) presenter.onBtnOpenActivityForEditTemp(city);
+                    break;
         }
     }
 }

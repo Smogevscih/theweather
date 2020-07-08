@@ -2,11 +2,14 @@ package com.smic.weather.presenters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.widget.ArrayAdapter;
 
+import com.smic.weather.EditCityActivity;
+import com.smic.weather.EditTemperatureActivity;
 import com.smic.weather.R;
 import com.smic.weather.bmodel.cities.City;
 import com.smic.weather.bmodel.TemperatureInCity;
@@ -36,7 +39,7 @@ public class PresenterTwo implements ContractTwo.Presenter {
                 model.getListCity();
             }
             if (msg.what == NO_CONNECT) {
-            //добавить show  на тост
+                //добавить show  на тост
             }
         }
     };
@@ -77,5 +80,12 @@ public class PresenterTwo implements ContractTwo.Presenter {
         ArrayAdapter<?> adapter = new ArrayAdapter(context, R.layout.custom_spinner, listCyties.toArray());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         view.showSpinnerCity(adapter);
+    }
+
+    @Override
+    public void onBtnOpenActivityForEditTemp(City city) {
+        Intent intent = new Intent(context, EditTemperatureActivity.class);
+        intent.putExtra("key", city.getId());
+        context.startActivity(intent);
     }
 }
