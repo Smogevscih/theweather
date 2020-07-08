@@ -6,13 +6,16 @@ import com.smic.weather.bmodel.cities.City;
 import com.smic.weather.bmodel.db.AppDatabase;
 import com.smic.weather.bmodel.db.CitiesDAO;
 import com.smic.weather.bmodel.db.Database;
+import com.smic.weather.bmodel.temp.PairTempAndMonth;
 import com.smic.weather.bmodel.temp.Temperature;
 import com.smic.weather.contracts.ContractOne;
+import com.smic.weather.contracts.ContractThree;
 import com.smic.weather.contracts.ContractTwo;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.smic.weather.bmodel.Constants.GOOD_CONNECT;
 import static com.smic.weather.bmodel.Constants.GOOD_OPERATION;
@@ -22,7 +25,7 @@ import static com.smic.weather.bmodel.Constants.NO_CONNECT;
  * @autor Smogevscih Yuri
  * 08.07.2020
  **/
-public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel {
+public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel, ContractThree.BModel {
     private CitiesDAO citiesDAO;
     Handler handler;
     static ArrayList<City> list;
@@ -120,6 +123,26 @@ public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel
             }
         });
         thread.start();
+    }
+
+    @Override
+    public List<PairTempAndMonth> getListPair(City city) {
+        List<PairTempAndMonth> listPair = new ArrayList<>();
+        if (city != null) {
+            listPair.add(new PairTempAndMonth(1, city.tJanuary));
+            listPair.add(new PairTempAndMonth(2, city.tFebruary));
+            listPair.add(new PairTempAndMonth(3, city.tMarch));
+            listPair.add(new PairTempAndMonth(4, city.tApril));
+            listPair.add(new PairTempAndMonth(5, city.tMay));
+            listPair.add(new PairTempAndMonth(6, city.tJune));
+            listPair.add(new PairTempAndMonth(7, city.tJuly));
+            listPair.add(new PairTempAndMonth(8, city.tAugust));
+            listPair.add(new PairTempAndMonth(9, city.tSeptember));
+            listPair.add(new PairTempAndMonth(10, city.tOctober));
+            listPair.add(new PairTempAndMonth(11, city.tNovember));
+            listPair.add(new PairTempAndMonth(12, city.tDecember));
+        }
+        return listPair;
     }
 
     @Override
