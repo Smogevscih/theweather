@@ -6,6 +6,9 @@
     <string name="btn_remove_city">Remove City</string>
     <string name="txt_name_city">Name City</string>
     <string name="btn_add_and_edit_city">ADD OR EDIT CITY</string>
+    <string name="btn_reset">RESET</string>
+    <string name="btn_save">SAVE</string>
+    <string name="btn_back">BACK</string>
     <string-array name="seasons">
         <item>WINTER</item>
         <item>SPRING</item>

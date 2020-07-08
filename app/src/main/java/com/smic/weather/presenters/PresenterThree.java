@@ -31,6 +31,7 @@ public class PresenterThree implements ContractThree.Presenter {
         public void handleMessage(Message msg) {
             if (msg.what == GOOD_OPERATION) {
                 onInitField();
+
             }
         }
     };
@@ -48,12 +49,14 @@ public class PresenterThree implements ContractThree.Presenter {
         List<PairTempAndMonth> list = model.getListPair(city);
         pairAdapter = new PairAdapter(list);
         view.showTempAndMonth(pairAdapter);
+        view.showTitle(city.getName());
     }
 
     public void onInitField() {
         List<PairTempAndMonth> list = model.getListPair(city);
         pairAdapter = new PairAdapter(list);
         view.showTempAndMonth(pairAdapter);
+
     }
 
     @Override

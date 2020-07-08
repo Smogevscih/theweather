@@ -22,7 +22,7 @@ public interface ContractThree {
 
         City getCity(int id);
 
-        void updateTemp(City city, List<PairTempAndMonth>  listTemp);
+        void updateTemp(City city, List<PairTempAndMonth> listTemp);
 
         void onConnectBD();
     }
@@ -36,5 +36,7 @@ public interface ContractThree {
     interface View {
 
         void showTempAndMonth(PairAdapter pairAdapter);
+
+        void showTitle(String title);
     }
 }
