@@ -14,6 +14,10 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
+import static com.smic.weather.bmodel.Constants.GOOD_CONNECT;
+import static com.smic.weather.bmodel.Constants.GOOD_OPERATION;
+import static com.smic.weather.bmodel.Constants.NO_CONNECT;
+
 /**
  * @autor Smogevscih Yuri
  * 08.07.2020
@@ -22,6 +26,7 @@ public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel
     private CitiesDAO citiesDAO;
     Handler handler;
     static ArrayList<City> list;
+
 
     public TemperatureInCity(Handler handler) {
         this.handler = handler;
@@ -47,6 +52,19 @@ public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel
     }
 
     @Override
+    public void delCity(final City city) {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                citiesDAO.delete(city);
+                list = (ArrayList<City>) citiesDAO.getAll();
+                handler.sendEmptyMessage(GOOD_OPERATION);
+            }
+        });
+        thread.start();
+    }
+
+    @Override
     public void onConnectBD() {
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -54,9 +72,9 @@ public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel
                 AppDatabase db = Database.getInstance().getDatabase();
                 citiesDAO = db.citiesDAO();
                 if (citiesDAO != null) {
-                    handler.sendEmptyMessage(PresenterOne.GOOD_CONNECT);
+                    handler.sendEmptyMessage(GOOD_CONNECT);
                 } else {
-                    handler.sendEmptyMessage(PresenterOne.NO_CONNECT);
+                    handler.sendEmptyMessage(NO_CONNECT);
                 }
 
             }

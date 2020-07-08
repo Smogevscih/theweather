@@ -17,10 +17,14 @@ public interface ContractTwo {
         void getListCity();
 
         ArrayList<City> getList();
+
+        void delCity(City city);
     }
 
     interface Presenter {
         void onGetListCity();
+
+        void onBtnDelCity(City city);
 
         void iniField();
     }
