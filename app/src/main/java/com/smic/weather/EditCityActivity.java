@@ -58,8 +58,6 @@ public class EditCityActivity extends AppCompatActivity implements ContractTwo.V
                     if (typeCity.equals(typeCities[1])) spnSizeCity.setSelection(1);
                     if (typeCity.equals(typeCities[2])) spnSizeCity.setSelection(2);
                     etxtNameCity.setText(myCity.getName());
-                }else{
-                    etxtNameCity.setText("null");
                 }
             }
 

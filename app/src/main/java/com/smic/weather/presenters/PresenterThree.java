@@ -13,6 +13,9 @@ import com.smic.weather.bmodel.temp.PairTempAndMonth;
 import com.smic.weather.contracts.ContractThree;
 
 import java.util.List;
+import java.util.Map;
+
+import static com.smic.weather.bmodel.Constants.GOOD_OPERATION;
 
 /**
  * @autor Smogevscih Yuri
@@ -23,9 +26,12 @@ public class PresenterThree implements ContractThree.Presenter {
     private ContractThree.BModel model;
     Context context;
     PairAdapter pairAdapter;
+    City city;
     Handler handler = new Handler(Looper.getMainLooper()) {
         public void handleMessage(Message msg) {
-
+            if (msg.what == GOOD_OPERATION) {
+                onInitField();
+            }
         }
     };
 
@@ -33,13 +39,25 @@ public class PresenterThree implements ContractThree.Presenter {
         this.view = view;
         model = new TemperatureInCity(handler);
         context = ((Activity) view).getApplicationContext();
+        model.onConnectBD();
     }
 
     @Override
     public void onInitField(int id) {
-        City myCity = model.getCity(id);
-        List<PairTempAndMonth> list = model.getListPair(myCity);
+        city = model.getCity(id);
+        List<PairTempAndMonth> list = model.getListPair(city);
         pairAdapter = new PairAdapter(list);
         view.showTempAndMonth(pairAdapter);
+    }
+
+    public void onInitField() {
+        List<PairTempAndMonth> list = model.getListPair(city);
+        pairAdapter = new PairAdapter(list);
+        view.showTempAndMonth(pairAdapter);
+    }
+
+    @Override
+    public void onBtnSave(Map mapTemp) {
+        model.updateTemp(city, mapTemp);
     }
 }

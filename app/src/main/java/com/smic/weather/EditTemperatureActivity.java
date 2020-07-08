@@ -32,11 +32,14 @@ public class EditTemperatureActivity extends AppCompatActivity implements Contra
 
         id = getIntent().getIntExtra("key", 0);
         presenter.onInitField(id);
+        btnSave.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-
+        if (v.getId() == R.id.btnSave) {
+            presenter.onBtnSave(PairAdapter.getMapChange());
+        }
     }
 
     @Override

@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static com.smic.weather.bmodel.Constants.GOOD_CONNECT;
 import static com.smic.weather.bmodel.Constants.GOOD_OPERATION;
@@ -151,6 +152,23 @@ public class TemperatureInCity implements ContractOne.BModel, ContractTwo.BModel
             if (city.getId() == id) return city;
         }
         return null;
+    }
+
+    @Override
+    public void updateTemp(City city, Map mapTemp) {
+        city.settJanuary((Double) mapTemp.get(0));
+        city.settFebruary((Double) mapTemp.get(1));
+        city.settMarch((Double) mapTemp.get(2));
+        city.settApril((Double) mapTemp.get(3));
+        city.settMay((Double) mapTemp.get(4));
+        city.settJune((Double) mapTemp.get(5));
+        city.settJuly((Double) mapTemp.get(6));
+        city.settAugust((Double) mapTemp.get(7));
+        city.settSeptember((Double) mapTemp.get(8));
+        city.settOctober((Double) mapTemp.get(9));
+        city.settNovember((Double) mapTemp.get(10));
+        city.settDecember((Double) mapTemp.get(11));
+        updateCity(city);
     }
 
     @Override

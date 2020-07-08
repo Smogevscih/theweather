@@ -9,6 +9,7 @@ import com.smic.weather.bmodel.temp.Temperature;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @autor Smogevscih Yuri
@@ -21,10 +22,15 @@ public interface ContractThree {
 
         City getCity(int id);
 
+        void updateTemp(City city, Map mapTemp);
+
+        void onConnectBD();
     }
 
     interface Presenter {
         void onInitField(int id);
+
+        void onBtnSave(Map mapTemp);
     }
 
     interface View {
