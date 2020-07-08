@@ -17,8 +17,7 @@ import com.smic.weather.presenters.PresenterOne;
 
 public class MainActivity extends AppCompatActivity implements ContractOne.View, View.OnClickListener {
     private Button btnConnectBD, btnEditCity, btnGetListFromBD;
-    private Spinner spnCity;
-    private Spinner spnSeason;
+    private Spinner spnSeason, spnModeScale, spnCity;
     private TextView txtTypeCity, txtAnswer;
     PresenterOne presenter;
 
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         presenter = new PresenterOne(this);
-        final Spinner spnModeScale;
+
         {
             btnConnectBD = findViewById(R.id.btnConnectBD);
             btnEditCity = findViewById(R.id.btnEditCity);
@@ -49,12 +48,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
         spnCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                City myCity = (City) spnCity.getSelectedItem();
-                if (myCity != null) {
-                    presenter.onSelectedCity(myCity);
-                    presenter.onGetAnswer(myCity,(String)spnSeason.getSelectedItem(),(String)spnModeScale.getSelectedItem());
-                }
-
+              onSelected();
             }
 
             @Override
@@ -62,10 +56,41 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
 
             }
         });
+        spnSeason.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                onSelected();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spnModeScale.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                onSelected();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         btnConnectBD.setOnClickListener(this);
         btnEditCity.setOnClickListener(this);
         btnGetListFromBD.setOnClickListener(this);
 
+    }
+
+    private void onSelected() {
+        City myCity = (City) spnCity.getSelectedItem();
+        if (myCity != null) {
+            presenter.onSelectedCity(myCity);
+            presenter.onGetAnswer(myCity, (String) spnSeason.getSelectedItem(), (String) spnModeScale.getSelectedItem());
+        }
     }
 
     @Override
@@ -80,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
 
     @Override
     public void showToast(String message) {
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
