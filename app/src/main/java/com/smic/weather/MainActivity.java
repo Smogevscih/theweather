@@ -24,7 +24,8 @@ import io.reactivex.disposables.Disposable;
 public class MainActivity extends AppCompatActivity implements ContractOne.View, View.OnClickListener {
     private Button btnEditCity;
     private Spinner spnSeason, spnModeScale, spnCity;
-    private TextView txtTypeCity, txtAnswer;
+    private TextView txtTypeCity, txtAnswerN;
+    DecTextView txtAnswer;
     PresenterOne presenter;
 
     @Override
@@ -39,7 +40,8 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
             spnSeason = findViewById(R.id.spnSeason);
             spnModeScale = findViewById(R.id.spnModeScale);
             txtTypeCity = findViewById(R.id.txtTypeCity);
-            txtAnswer = findViewById(R.id.txtAnswer);
+            txtAnswerN = findViewById(R.id.txtAnswer);
+            txtAnswer = new DecTextView(this, txtAnswerN);
         }
         {
             ArrayAdapter<?> adapterSeasons = ArrayAdapter.createFromResource(this, R.array.seasons, android.R.layout.simple_spinner_item);
@@ -84,9 +86,9 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
         });
 
         btnEditCity.setOnClickListener(this);
-       // presenter.onGetField();
+        // presenter.onGetField();
         {
-            Observable<String> txtObservable = RxTextView.textChange(txtAnswer);
+            Observable<String> txtObservable = RxTextView.textChange(txtAnswerN);
             Observer<String> observer = new Observer<String>() {
                 @Override
                 public void onSubscribe(Disposable d) {
@@ -95,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
 
                 @Override
                 public void onNext(String s) {
-                   if(!s.isEmpty()) Snackbar.make(txtAnswer, s, Snackbar.LENGTH_LONG).show();
+                    if (!s.isEmpty()) Snackbar.make(txtAnswerN, s, Snackbar.LENGTH_LONG).show();
                 }
 
                 @Override
@@ -121,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
     }
 
     private void clearField() {
-        txtAnswer.setText("");
+        txtAnswer.setText("", TextView.BufferType.NORMAL);
         txtTypeCity.setText("");
     }
 
@@ -150,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
 
     @Override
     public void showAnswer(String answer) {
-        txtAnswer.setText(answer);
+        txtAnswer.setText(answer, TextView.BufferType.NORMAL);
     }
 
     @Override
