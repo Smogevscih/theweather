@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements ContractOne.View,
         });
 
         btnEditCity.setOnClickListener(this);
-        presenter.onGetField();
+       // presenter.onGetField();
         {
             Observable<String> txtObservable = RxTextView.textChange(txtAnswer);
             Observer<String> observer = new Observer<String>() {
